@@ -1,0 +1,5 @@
+<resources>
+  <string name="app_name">RecipeAppMVP</string>
+  <string name="search_placeholder">Search Your Recipes</string>
+  <string name="meal_categories">Meal Categories</string>
+</resources>
