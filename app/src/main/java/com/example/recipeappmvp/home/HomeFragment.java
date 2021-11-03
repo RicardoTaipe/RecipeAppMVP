@@ -100,3 +100,7 @@ public class HomeFragment extends Fragment implements HomeContract.View {
     binding = null;
   }
 }
+//TODO https://dribbble.com/shots/7333348-ChefCraft/attachments/248232?mode=media
+//https://dribbble.com/shots/9061561-Recipes-App/attachments/1158060?mode=media
+//https://dribbble.com/shots/9061561-Recipes-App/attachments/1158060?mode=media
+//https://dribbble.com/shots/7059758-BeChef-Cooking-App/attachments/60689?mode=media
