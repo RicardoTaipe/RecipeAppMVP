@@ -1,20 +1,14 @@
 package com.example.recipeappmvp.home;
 
-import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.example.recipeappmvp.databinding.ActivityMainBinding;
-import com.example.recipeappmvp.home.HomePresenter;
-import com.example.recipeappmvp.home.HomeView;
-import com.example.recipeappmvp.network.response.Categories.Category;
-import com.example.recipeappmvp.network.response.Meals.Meal;
 import com.example.recipeappmvp.util.ActivityUtils;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
   private ActivityMainBinding binding;
-  //private HomePresenter homePresenter;
+  private HomePresenter homePresenter;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +21,9 @@ public class MainActivity extends AppCompatActivity {
       homeFragment = HomeFragment.newInstance();
       ActivityUtils.addFragmentToActivity(getSupportFragmentManager(), homeFragment, contentFrame);
     }
+
+    homePresenter = new HomePresenter(homeFragment);
+
   }
 
 }

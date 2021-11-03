@@ -8,15 +8,24 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class HomePresenter {
+public class HomePresenter implements HomeContract.Presenter {
 
-  private HomeView homeView;
+  private final HomeContract.View homeView;
 
-  public HomePresenter(HomeView homeView) {
+  public HomePresenter(HomeContract.View homeView) {
     this.homeView = homeView;
+    homeView.setPresenter(this);
   }
 
-  void getMeals() {
+
+  @Override
+  public void start() {
+    loadCategories();
+    loadMeals();
+  }
+
+  @Override
+  public void loadMeals() {
     homeView.showLoading();
 
     Call<Meals> mealsCall = Utils.getApi().getMeals("American");
@@ -40,7 +49,8 @@ public class HomePresenter {
     });
   }
 
-  void getCategories() {
+  @Override
+  public void loadCategories() {
     homeView.showLoading();
 
     Call<Categories> categoriesCall = Utils.getApi().getCategories();
