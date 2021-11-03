@@ -1,4 +1,4 @@
-package com.example.recipeappmvp;
+package com.example.recipeappmvp.util;
 
 import android.app.AlertDialog;
 import android.content.Context;

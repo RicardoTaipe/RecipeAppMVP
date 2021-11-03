@@ -1,7 +1,7 @@
 package com.example.recipeappmvp.home;
 
 import androidx.annotation.NonNull;
-import com.example.recipeappmvp.Utils;
+import com.example.recipeappmvp.util.Utils;
 import com.example.recipeappmvp.network.response.Categories;
 import com.example.recipeappmvp.network.response.Meals;
 import retrofit2.Call;

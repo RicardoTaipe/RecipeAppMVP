@@ -6,7 +6,7 @@
   android:layout_height="match_parent"
   android:background="@drawable/splash_screen_bg"
   android:theme="@style/Theme.RecipeAppMVP.Fullscreen"
-  tools:context=".SplashScreenActivity"
+  tools:context=".splash.SplashScreenActivity"
   android:paddingHorizontal="24dp"
   android:paddingVertical="24dp">
   <TextView

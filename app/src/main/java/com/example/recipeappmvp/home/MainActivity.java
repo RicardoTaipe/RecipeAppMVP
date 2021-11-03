@@ -4,49 +4,29 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.example.recipeappmvp.databinding.ActivityMainBinding;
+import com.example.recipeappmvp.home.HomePresenter;
+import com.example.recipeappmvp.home.HomeView;
 import com.example.recipeappmvp.network.response.Categories.Category;
 import com.example.recipeappmvp.network.response.Meals.Meal;
+import com.example.recipeappmvp.util.ActivityUtils;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements HomeView {
+public class MainActivity extends AppCompatActivity {
 
   private ActivityMainBinding binding;
-  private HomePresenter homePresenter;
+  //private HomePresenter homePresenter;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     binding = ActivityMainBinding.inflate(getLayoutInflater());
     setContentView(binding.getRoot());
-
-//    homePresenter = new HomePresenter(this);
-//    homePresenter.getMeals();
-//    homePresenter.getCategories();
+    final int contentFrame = binding.contentFrame.getId();
+    HomeFragment homeFragment = (HomeFragment) getSupportFragmentManager().findFragmentById(contentFrame);
+    if (homeFragment == null) {
+      homeFragment = HomeFragment.newInstance();
+      ActivityUtils.addFragmentToActivity(getSupportFragmentManager(), homeFragment, contentFrame);
+    }
   }
 
-  @Override
-  public void showLoading() {
-//    binding.shimmerMeal.getRoot().setVisibility(View.VISIBLE);
-//    binding.shimmerCategory.getRoot().setVisibility(View.VISIBLE);
-  }
-
-  @Override
-  public void hideLoading() {
-//    binding.shimmerMeal.getRoot().setVisibility(View.GONE);
-//    binding.shimmerCategory.getRoot().setVisibility(View.GONE);
-  }
-
-  @Override
-  public void setMeal(List<Meal> meal) {
-  }
-
-  @Override
-  public void setCategory(List<Category> category) {
-
-  }
-
-  @Override
-  public void onErrorLoading(String message) {
-
-  }
 }

@@ -12,21 +12,14 @@
     <activity
       android:configChanges="orientation|keyboardHidden|screenSize"
       android:label="@string/title_activity_splash_screen"
-      android:name=".SplashScreenActivity"
+      android:name=".splash.SplashScreenActivity"
       android:theme="@style/Theme.RecipeAppMVP.Fullscreen">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
-
         <category android:name="android.intent.category.LAUNCHER" />
       </intent-filter>
     </activity>
-    <activity android:name=".home.MainActivity">
-      <intent-filter>
-        <action android:name="android.intent.action.MAIN" />
-
-        <category android:name="android.intent.category.LAUNCHER" />
-      </intent-filter>
-    </activity>
+    <activity android:name=".home.MainActivity"/>
 
     <meta-data
       android:name="preloaded_fonts"

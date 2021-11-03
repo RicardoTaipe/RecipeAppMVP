@@ -1,10 +1,13 @@
 <resources>
   <string name="app_name">RecipeAppMVP</string>
-  <string name="search_placeholder">Search Your Recipes</string>
+  <string name="search_placeholder">Search Recipes</string>
   <string name="meal_categories">Meal Categories</string>
   <string name="title_activity_splash_screen">FullscreenActivity</string>
   <string name="dummy_button">Dummy Button</string>
   <string name="dummy_content">DUMMY\nCONTENT</string>
   <string name="splash_screen_title">Enjoy\ncooking</string>
   <string name="splash_screen_subtitle">Delicious and detailed recipes\non your phone</string>
+  <string name="title_home_page">What do you want\nto cook today?</string>
+  <!-- TODO: Remove or change this placeholder text -->
+  <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
