@@ -1,113 +1,135 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView
-  xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:app="http://schemas.android.com/apk/res-auto"
-  xmlns:tools="http://schemas.android.com/tools"
-  android:layout_width="match_parent"
-  android:layout_height="match_parent"
-  android:fillViewport="true"
-  android:background="@color/colorBackground"
-  tools:context=".home.MainActivity">
-
-  <androidx.constraintlayout.widget.ConstraintLayout
+  xmlns:tools="http://schemas.android.com/tools">
+  <androidx.core.widget.NestedScrollView
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginHorizontal="32dp">
+    android:background="@color/colorBackground"
+    android:fillViewport="true"
+    tools:context=".home.MainActivity">
 
-    <TextView
-      android:id="@+id/title"
-      android:textStyle="bold"
-      android:layout_width="0dp"
-      android:layout_height="wrap_content"
-      android:layout_marginTop="24dp"
-      android:fontFamily="@font/stardos_stencil"
-      android:text="@string/title_home_page"
-      android:textColor="?attr/colorOnBackground"
-      android:textAppearance="?attr/textAppearanceHeadline5"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent" />
-
-    <com.google.android.material.card.MaterialCardView
-      app:strokeWidth="1dp"
-      app:strokeColor="@color/colorSurface"
-      app:cardElevation="0dp"
-      app:cardCornerRadius="24dp"
-      android:id="@+id/cardSearch"
+    <androidx.constraintlayout.widget.ConstraintLayout
       android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:layout_marginTop="15dp"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@id/title">
+      android:layout_height="match_parent"
+      android:layout_marginHorizontal="32dp">
+
       <TextView
-        android:text="@string/search_placeholder"
+        android:id="@+id/title"
+        android:textStyle="bold"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/stardos_stencil"
+        android:text="@string/title_home_page"
+        android:textAppearance="?attr/textAppearanceHeadline5"
+        android:textColor="?attr/colorOnBackground"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+      <TextView
+        android:id="@+id/titleCategory"
+        android:textStyle="bold"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:paddingStart="24dp"
-        android:layout_gravity="center_vertical"
-        android:textColor="?attr/colorOnPrimary"
-        android:gravity="center_vertical"
-        app:drawableStartCompat="@drawable/ic_search"
-        />
-    </com.google.android.material.card.MaterialCardView>
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:text="@string/meal_categories"
+        android:textColor="@color/colorPrimary"
+        android:textSize="19sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/viewPagerHeader" />
 
-    <androidx.viewpager2.widget.ViewPager2
-      android:id="@+id/viewPagerHeader"
-      android:foregroundGravity="center"
-      android:overScrollMode="never"
-      android:clipToPadding="false"
-      android:layout_marginTop="16dp"
-      android:layout_height="150dp"
-      android:layout_width="0dp"
-      app:layout_constraintTop_toBottomOf="@id/cardSearch"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintStart_toStartOf="parent"/>
+      <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerviewCategory"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:clipToPadding="false"
+        android:scrollbars="none"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/titleCategory" />
 
-    <include
-      android:id="@+id/shimmerMeal"
-      tools:visibility="visible"
-      layout="@layout/item_view_pager_header_shimmer"
-      android:layout_width="0dp"
-      app:layout_constraintTop_toTopOf="@id/viewPagerHeader"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintStart_toStartOf="parent"
-      android:layout_height="wrap_content" />
+      <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPagerHeader"
+        android:layout_width="0dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="16dp"
+        android:clipToPadding="false"
+        android:foregroundGravity="center"
+        android:overScrollMode="never"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cardSearch" />
 
-    <TextView
-      android:id="@+id/titleCategory"
-      android:text="@string/meal_categories"
-      android:textSize="19sp"
-      android:textColor="@color/colorPrimary"
-      android:textStyle="bold"
-      android:layout_marginLeft="16dp"
-      android:layout_marginRight="16dp"
-      android:layout_marginTop="5dp"
-      app:layout_constraintTop_toBottomOf="@id/viewPagerHeader"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintStart_toStartOf="parent"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"/>
+      <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/category_viewpager"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:paddingBottom="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tab_layout_category" />
 
-    <androidx.recyclerview.widget.RecyclerView
-      android:id="@+id/recyclerviewCategory"
-      android:layout_width="0dp"
-      android:layout_height="wrap_content"
-      android:layout_marginTop="10dp"
-      android:clipToPadding="false"
-      android:scrollbars="none"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@id/titleCategory" />
+      <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardSearch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        app:cardCornerRadius="24dp"
+        app:cardElevation="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        app:strokeColor="@color/colorSurface"
+        app:strokeWidth="1dp">
+        <TextView
+          android:layout_width="match_parent"
+          android:layout_height="40dp"
+          android:layout_gravity="center_vertical"
+          android:paddingStart="24dp"
+          android:gravity="center_vertical"
+          android:text="@string/search_placeholder"
+          android:textColor="?attr/colorOnPrimary"
+          app:drawableStartCompat="@drawable/ic_search" />
+      </com.google.android.material.card.MaterialCardView>
 
-    <include android:id="@+id/shimmerCategory"
-      layout="@layout/item_recycler_category_shimmer"
-      android:layout_width="0dp"
-      app:layout_constraintTop_toTopOf="@id/recyclerviewCategory"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintStart_toStartOf="parent"
-      android:layout_height="wrap_content"/>
+      <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab_layout_category"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerviewCategory"
+        app:tabMode="scrollable" />
 
-  </androidx.constraintlayout.widget.ConstraintLayout>
+      <include
+        android:id="@+id/shimmerMeal"
+        layout="@layout/item_view_pager_header_shimmer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/viewPagerHeader"
+        tools:visibility="visible" />
 
-</androidx.core.widget.NestedScrollView>
+      <include
+        android:id="@+id/shimmerCategory"
+        layout="@layout/item_recycler_category_shimmer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/recyclerviewCategory" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+  </androidx.core.widget.NestedScrollView>
+  <data>
+
+  </data>
+</layout>
